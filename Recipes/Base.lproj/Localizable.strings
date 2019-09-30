@@ -1,2 +1,4 @@
 List.title="Recipes";
 List.loading="Loading...";
+List.continue="Continue";
+Error="Error";

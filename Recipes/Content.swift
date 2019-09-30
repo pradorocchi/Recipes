@@ -8,11 +8,12 @@ private let dateFormatter: DateFormatter = {
 }()
 
 struct Content: View {
+    @ObservedObject var result: Result
     @State private var dates = [Date]()
     @State private var loading = false
 
     var body: some View {
-        Loading(loading: $loading) {
+        Loading(loading: $loading, error: $result.error, list: {
             NavigationView {
                 MasterView(dates: self.$dates)
                     .navigationBarTitle(Text(.init("List.title")))
@@ -28,20 +29,24 @@ struct Content: View {
                     )
                 DetailView()
             }.navigationViewStyle(DoubleColumnNavigationViewStyle())
+        }) {
+            
         }
     }
 }
 
 private struct Loading<List>: View where List: View {
     @Binding var loading: Bool
+    @Binding var error: Error?
     var list: () -> List
+    var accept: () -> Void
     
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .center) {
                 self.list()
-                    .disabled(self.loading)
-                    .blur(radius: self.loading ? 3 : 0)
+                    .disabled(self.loading || self.error != nil)
+                    .blur(radius: self.loading || self.error != nil ? 3 : 0)
                 VStack {
                     Text(.init("List.loading"))
                     Image(systemName: "arrow.2.circlepath.circle")
@@ -51,6 +56,18 @@ private struct Loading<List>: View where List: View {
                 .foregroundColor(Color.primary)
                 .cornerRadius(20)
                 .opacity(self.loading ? 1 : 0)
+                VStack {
+                    Text(self.error?.localizedDescription ?? "")
+                        .frame(width: geometry.size.width / 2, height: geometry.size.height / 6)
+                    Button(action: {
+                        self.error = nil
+                    }, label: { Text(.init("List.continue")) })
+                }
+                .frame(width: geometry.size.width / 1.5, height: geometry.size.height / 4)
+                .background(Color.secondary.colorInvert())
+                .foregroundColor(Color.primary)
+                .cornerRadius(20)
+                .opacity(self.error == nil ? 0 : 1)
             }
         }
     }
