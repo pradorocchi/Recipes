@@ -49,6 +49,7 @@ final class Scene: UIResponder, UIWindowSceneDelegate {
         assets = recipes.includes.Asset
         DispatchQueue.main.async {
             self.result.loading = false
+            self.result.entries = recipes.includes.Entry
             self.result.recipes = recipes.items
         }
         download()

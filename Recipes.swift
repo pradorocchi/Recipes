@@ -4,10 +4,16 @@ struct Recipes: Decodable {
     struct Item: Hashable, Decodable {
         struct Fields: Decodable, Hashable {
             var title = ""
+            var description = ""
             var photo = Photo()
+            var chef: Chef?
         }
         
         struct Photo: Decodable, Hashable {
+            var sys = Sys()
+        }
+        
+        struct Chef: Decodable, Hashable {
             var sys = Sys()
         }
         
@@ -16,6 +22,7 @@ struct Recipes: Decodable {
     
     struct Includes: Decodable {
         var Asset = [Assets]()
+        var Entry = [Entries]()
     }
     
     struct Assets: Decodable {
@@ -25,6 +32,15 @@ struct Recipes: Decodable {
         
         struct File: Decodable {
             var url = ""
+        }
+        
+        var sys = Sys()
+        var fields = Fields()
+    }
+    
+    struct Entries: Decodable {
+        struct Fields: Decodable {
+            var name = ""
         }
         
         var sys = Sys()
