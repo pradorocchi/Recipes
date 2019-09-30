@@ -5,18 +5,19 @@ struct Content: View {
     var refresh: () -> Void
 
     var body: some View {
-        Loading(loading: $result.loading, error: $result.error, list: {
+        Loading(loading: $result.loading, error: $result.error) {
             NavigationView {
-                MasterView(recipes: self.$result.recipes)
+                Listing(result: self.result)
                     .navigationBarTitle(Text(.init("List.title")))
                     .navigationBarItems(
                         trailing: Button(action: self.refresh) {
                             Image(systemName: "arrow.2.circlepath")
-                        }.frame(width: 90, height: 90, alignment: .trailing)
+                        }
+                        .frame(width: 90, height: 90, alignment: .trailing)
                     )
-                DetailView()
+                Recipe()
             }.navigationViewStyle(DoubleColumnNavigationViewStyle())
-        })
+        }
     }
 }
 
@@ -55,18 +56,20 @@ private struct Loading<List>: View where List: View {
             }
         }
     }
-
 }
 
-struct MasterView: View {
-    @Binding var recipes: [Recipes.Item]
+private struct Listing: View {
+    @ObservedObject var result: Result
 
     var body: some View {
         List {
-            ForEach(recipes, id: \.self) { recipe in
-                NavigationLink(
-                    destination: DetailView(recipe: recipe)
-                ) {
+            ForEach(result.recipes, id: \.self) { recipe in
+                NavigationLink(destination: Recipe(recipe: recipe)) {
+                    Image(uiImage: UIImage(data: self.result.images[recipe.fields.photo.sys.id] ?? Data()) ?? UIImage())
+                        .frame(width: 50, height: 50)
+                        .padding(.top, 10)
+                        .padding(.leading, 10)
+                        .padding(.bottom, 10)
                     Text(recipe.fields.title)
                 }
             }
@@ -74,7 +77,7 @@ struct MasterView: View {
     }
 }
 
-struct DetailView: View {
+private struct Recipe: View {
     var recipe = Recipes.Item()
 
     var body: some View {

@@ -14,7 +14,11 @@ struct Recipes: Decodable {
         var fields = Fields()
     }
     
-    struct Asset: Decodable {
+    struct Includes: Decodable {
+        var Asset = [Assets]()
+    }
+    
+    struct Assets: Decodable {
         struct Fields: Decodable {
             var file = File()
         }
@@ -23,7 +27,7 @@ struct Recipes: Decodable {
             var url = ""
         }
         
-        let sys = Sys()
+        var sys = Sys()
         var fields = Fields()
     }
     
@@ -32,5 +36,5 @@ struct Recipes: Decodable {
     }
     
     var items = [Item]()
-    var includes = [Asset]()
+    var includes = Includes()
 }
