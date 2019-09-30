@@ -14,6 +14,7 @@
 		DA432BA6234225A5001038EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA432BA5234225A5001038EC /* Preview Assets.xcassets */; };
 		DA432BA9234225A5001038EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA432BA7234225A5001038EC /* LaunchScreen.storyboard */; };
 		DA432BB4234225A5001038EC /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA432BB3234225A5001038EC /* Tests.swift */; };
+		DA432BC023422941001038EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA432BBE23422941001038EC /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		DA432BAF234225A5001038EC /* RecipesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA432BB3234225A5001038EC /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		DA432BB5234225A5001038EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA432BBF23422941001038EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				DA432B9E234225A4001038EC /* Scene.swift */,
 				DA432BA2234225A5001038EC /* Assets.xcassets */,
 				DA432BA7234225A5001038EC /* LaunchScreen.storyboard */,
+				DA432BBE23422941001038EC /* Localizable.strings */,
 				DA432BA4234225A5001038EC /* Preview Content */,
 			);
 			path = Recipes;
@@ -189,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA432BA9234225A5001038EC /* LaunchScreen.storyboard in Resources */,
+				DA432BC023422941001038EC /* Localizable.strings in Resources */,
 				DA432BA6234225A5001038EC /* Preview Assets.xcassets in Resources */,
 				DA432BA3234225A5001038EC /* Assets.xcassets in Resources */,
 			);
@@ -239,6 +243,14 @@
 				DA432BA8234225A5001038EC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DA432BBE23422941001038EC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA432BBF23422941001038EC /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

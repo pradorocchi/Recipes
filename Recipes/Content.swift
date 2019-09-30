@@ -1,11 +1,3 @@
-//
-//  ContentView.swift
-//  Recipes
-//
-//  Created by zero on 9/30/19.
-//  Copyright © 2019 code challenge. All rights reserved.
-//
-
 import SwiftUI
 
 private let dateFormatter: DateFormatter = {
@@ -21,7 +13,7 @@ struct Content: View {
     var body: some View {
         NavigationView {
             MasterView(dates: $dates)
-                .navigationBarTitle(Text("Master"))
+                .navigationBarTitle(Text(.init("List.title")))
                 .navigationBarItems(
                     leading: EditButton(),
                     trailing: Button(
