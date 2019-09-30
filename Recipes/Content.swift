@@ -15,7 +15,7 @@ private let dateFormatter: DateFormatter = {
     return dateFormatter
 }()
 
-struct ContentView: View {
+struct Content: View {
     @State private var dates = [Date]()
 
     var body: some View {
@@ -29,7 +29,7 @@ struct ContentView: View {
                             withAnimation { self.dates.insert(Date(), at: 0) }
                         }
                     ) {
-                        Image(systemName: "plus")
+                        Image(systemName: "arrow.2.circlepath")
                     }
                 )
             DetailView()
@@ -66,12 +66,5 @@ struct DetailView: View {
                 Text("Detail view content goes here")
             }
         }.navigationBarTitle(Text("Detail"))
-    }
-}
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
