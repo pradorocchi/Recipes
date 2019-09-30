@@ -70,6 +70,9 @@ private struct Listing: View {
                         .padding(.top, 10)
                         .padding(.leading, 10)
                         .padding(.bottom, 10)
+                        .clipped()
+                        .scaledToFit()
+                        .background(Color.secondary)
                     Text(recipe.fields.title)
                 }
             }

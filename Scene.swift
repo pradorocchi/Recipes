@@ -4,7 +4,9 @@ import SwiftUI
 final class Scene: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     private var config = Config()
+    private var assets = [Recipes.Assets]()
     private let result = Result()
+    private let queue = DispatchQueue(label: "", qos: .background, target: .global(qos: .background))
 
     func scene(_ scene: UIScene, willConnectTo: UISceneSession, options: UIScene.ConnectionOptions) {
         let content = Content(result: result, refresh: refresh)
@@ -26,7 +28,7 @@ final class Scene: UIResponder, UIWindowSceneDelegate {
     private func refresh() {
         result.error = nil
         result.loading = true
-        DispatchQueue.global(qos: .background).async {
+        queue.async {
             URLSession.shared.dataTask(with: self.config.recipes) {
                 if let error = $2 {
                     self.error(error)
@@ -44,16 +46,32 @@ final class Scene: UIResponder, UIWindowSceneDelegate {
     }
     
     private func recipes(_ recipes: Recipes) {
+        assets = recipes.includes.Asset
         DispatchQueue.main.async {
             self.result.loading = false
             self.result.recipes = recipes.items
         }
+        download()
     }
     
     private func error(_ error: Error) {
         DispatchQueue.main.async {
             self.result.loading = false
             self.result.error = error
+        }
+    }
+    
+    private func download() {
+        guard let image = assets.popLast(), let url = URL(string: "https:" + image.fields.file.url) else { return }
+        queue.async {
+            URLSession.shared.downloadTask(with: url) {
+                if $2 == nil, let url = $0, let data = try? Data(contentsOf: url) {
+                    DispatchQueue.main.async {
+                        self.result.images[image.sys.id] = data
+                    }
+                }
+                self.download()
+            }.resume()
         }
     }
 }
