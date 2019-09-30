@@ -3,10 +3,11 @@ import Foundation
 struct Recipes: Decodable {
     struct Item: Hashable, Decodable {
         struct Fields: Decodable, Hashable {
+            var photo = Photo()
+            var tags: [Tag]?
+            var chef: Chef?
             var title = ""
             var description = ""
-            var photo = Photo()
-            var chef: Chef?
         }
         
         struct Photo: Decodable, Hashable {
@@ -14,6 +15,10 @@ struct Recipes: Decodable {
         }
         
         struct Chef: Decodable, Hashable {
+            var sys = Sys()
+        }
+        
+        struct Tag: Decodable, Hashable {
             var sys = Sys()
         }
         

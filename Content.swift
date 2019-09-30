@@ -38,7 +38,7 @@ private struct Loading<List>: View where List: View {
                 }
                 .frame(width: geometry.size.width / 2, height: geometry.size.height / 5)
                 .background(Color.secondary.colorInvert())
-                .foregroundColor(Color.primary)
+                .foregroundColor(.primary)
                 .cornerRadius(20)
                 .opacity(self.loading ? 1 : 0)
                 VStack {
@@ -50,7 +50,7 @@ private struct Loading<List>: View where List: View {
                 }
                 .frame(width: geometry.size.width / 1.5, height: geometry.size.height / 4)
                 .background(Color.secondary.colorInvert())
-                .foregroundColor(Color.primary)
+                .foregroundColor(.primary)
                 .cornerRadius(20)
                 .opacity(self.error == nil ? 0 : 1)
             }
@@ -102,13 +102,25 @@ private struct Recipe: View {
                             .padding(.trailing, 20)
                         Text(self.entries.first(where: { $0.sys.id == self.recipe.fields.chef?.sys.id })?.fields.name ?? "")
                             .font(.headline)
+                            .fontWeight(.bold)
                             .padding(.bottom, 20)
                             .padding(.leading, 20)
                             .padding(.trailing, 20)
                         Text(self.recipe.fields.description)
-                            .padding(.bottom, 20)
+                            .padding(.bottom, 30)
                             .padding(.leading, 20)
                             .padding(.trailing, 20)
+                        HStack {
+                            ForEach(self.recipe.fields.tags ?? [], id: \.self) { tag in
+                                Text("#" + (self.entries.first(where: { $0.sys.id == tag.sys.id })?.fields.name ?? ""))
+                                    .font(.footnote)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.secondary)
+                                    .padding(.bottom, 30)
+                                    .padding(.leading, 10)
+                                    .padding(.trailing, 10)
+                            }
+                        }
                     }
                 }
             }
