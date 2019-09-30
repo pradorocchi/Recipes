@@ -1,37 +1,22 @@
 import SwiftUI
 
-private let dateFormatter: DateFormatter = {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = .medium
-    dateFormatter.timeStyle = .medium
-    return dateFormatter
-}()
-
 struct Content: View {
     @ObservedObject var result: Result
-    @State private var dates = [Date]()
-    @State private var loading = false
+    var refresh: () -> Void
 
     var body: some View {
-        Loading(loading: $loading, error: $result.error, list: {
+        Loading(loading: $result.loading, error: $result.error, list: {
             NavigationView {
-                MasterView(dates: self.$dates)
+                MasterView(recipes: self.$result.recipes)
                     .navigationBarTitle(Text(.init("List.title")))
                     .navigationBarItems(
-                        leading: EditButton(),
-                        trailing: Button(
-                            action: {
-                                withAnimation { self.loading = true }
-                            }
-                        ) {
+                        trailing: Button(action: self.refresh) {
                             Image(systemName: "arrow.2.circlepath")
                         }
                     )
                 DetailView()
             }.navigationViewStyle(DoubleColumnNavigationViewStyle())
-        }) {
-            
-        }
+        })
     }
 }
 
@@ -39,7 +24,6 @@ private struct Loading<List>: View where List: View {
     @Binding var loading: Bool
     @Binding var error: Error?
     var list: () -> List
-    var accept: () -> Void
     
     var body: some View {
         GeometryReader { geometry in
@@ -75,33 +59,31 @@ private struct Loading<List>: View where List: View {
 }
 
 struct MasterView: View {
-    @Binding var dates: [Date]
+    @Binding var recipes: [Recipes.Item]
 
     var body: some View {
         List {
-            ForEach(dates, id: \.self) { date in
+            ForEach(recipes, id: \.self) { recipe in
                 NavigationLink(
-                    destination: DetailView(selectedDate: date)
+                    destination: DetailView(recipe: recipe)
                 ) {
-                    Text("\(date, formatter: dateFormatter)")
+                    Text(recipe.fields.title)
                 }
-            }.onDelete { indices in
-                indices.forEach { self.dates.remove(at: $0) }
             }
         }
     }
 }
 
 struct DetailView: View {
-    var selectedDate: Date?
+    var recipe = Recipes.Item()
 
     var body: some View {
         Group {
-            if selectedDate != nil {
-                Text("\(selectedDate!, formatter: dateFormatter)")
-            } else {
-                Text("Detail view content goes here")
+            ScrollView {
+                VStack {
+                    Text(recipe.fields.title)
+                }
             }
-        }.navigationBarTitle(Text("Detail"))
+        }.navigationBarTitle(Text(.init("Recipe.title")))
     }
 }

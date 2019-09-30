@@ -1,4 +1,6 @@
 List.title="Recipes";
 List.loading="Loading...";
 List.continue="Continue";
+Recipe.title="Recipe";
 Error="Error";
+Error.empty="Empty response from server";

@@ -5,5 +5,5 @@ struct Config: Decodable {
     var space = ""
     var token = ""
     
-    var entries: URL { URL(string: base + space + "/entries?access_token" + token)! }
+    var recipes: URL { URL(string: base + space + "/entries?access_token=" + token + "&content_type=recipe")! }
 }

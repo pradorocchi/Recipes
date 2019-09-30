@@ -9,31 +9,20 @@
 /* Begin PBXBuildFile section */
 		DA210C212342352100B40699 /* Config.json in Resources */ = {isa = PBXBuildFile; fileRef = DA210C202342352100B40699 /* Config.json */; };
 		DA210C232342357A00B40699 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA210C222342357A00B40699 /* Config.swift */; };
-		DA210C2523423E5000B40699 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA210C2423423E5000B40699 /* Result.swift */; };
+		DA210C2523423E5000B40699 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA210C2423423E5000B40699 /* Recipes.swift */; };
 		DA432B9D234225A4001038EC /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA432B9C234225A4001038EC /* Delegate.swift */; };
 		DA432B9F234225A4001038EC /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA432B9E234225A4001038EC /* Scene.swift */; };
 		DA432BA1234225A4001038EC /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA432BA0234225A4001038EC /* Content.swift */; };
 		DA432BA3234225A5001038EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA432BA2234225A5001038EC /* Assets.xcassets */; };
 		DA432BA6234225A5001038EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA432BA5234225A5001038EC /* Preview Assets.xcassets */; };
 		DA432BA9234225A5001038EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA432BA7234225A5001038EC /* LaunchScreen.storyboard */; };
-		DA432BB4234225A5001038EC /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA432BB3234225A5001038EC /* Tests.swift */; };
 		DA432BC023422941001038EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA432BBE23422941001038EC /* Localizable.strings */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		DA432BB0234225A5001038EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DA432B91234225A4001038EC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DA432B98234225A4001038EC;
-			remoteInfo = Recipes;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		DA210C202342352100B40699 /* Config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Config.json; sourceTree = "<group>"; };
 		DA210C222342357A00B40699 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		DA210C2423423E5000B40699 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		DA210C2423423E5000B40699 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
 		DA432B99234225A4001038EC /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA432B9C234225A4001038EC /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		DA432B9E234225A4001038EC /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
@@ -42,21 +31,11 @@
 		DA432BA5234225A5001038EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DA432BA8234225A5001038EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA432BAA234225A5001038EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA432BAF234225A5001038EC /* RecipesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA432BB3234225A5001038EC /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		DA432BB5234225A5001038EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA432BBF23422941001038EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		DA432B96234225A4001038EC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DA432BAC234225A5001038EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -71,7 +50,6 @@
 			children = (
 				DA432B9A234225A4001038EC /* Products */,
 				DA432B9B234225A4001038EC /* Recipes */,
-				DA432BB2234225A5001038EC /* RecipesTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,7 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				DA432B99234225A4001038EC /* Recipes.app */,
-				DA432BAF234225A5001038EC /* RecipesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,7 +69,7 @@
 				DA210C222342357A00B40699 /* Config.swift */,
 				DA432BA0234225A4001038EC /* Content.swift */,
 				DA432B9C234225A4001038EC /* Delegate.swift */,
-				DA210C2423423E5000B40699 /* Result.swift */,
+				DA210C2423423E5000B40699 /* Recipes.swift */,
 				DA432B9E234225A4001038EC /* Scene.swift */,
 				DA432BA2234225A5001038EC /* Assets.xcassets */,
 				DA432BA7234225A5001038EC /* LaunchScreen.storyboard */,
@@ -108,15 +85,6 @@
 				DA432BA5234225A5001038EC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		DA432BB2234225A5001038EC /* RecipesTests */ = {
-			isa = PBXGroup;
-			children = (
-				DA432BB5234225A5001038EC /* Info.plist */,
-				DA432BB3234225A5001038EC /* Tests.swift */,
-			);
-			path = RecipesTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,24 +107,6 @@
 			productReference = DA432B99234225A4001038EC /* Recipes.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DA432BAE234225A5001038EC /* RecipesTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DA432BBB234225A5001038EC /* Build configuration list for PBXNativeTarget "RecipesTests" */;
-			buildPhases = (
-				DA432BAB234225A5001038EC /* Sources */,
-				DA432BAC234225A5001038EC /* Frameworks */,
-				DA432BAD234225A5001038EC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DA432BB1234225A5001038EC /* PBXTargetDependency */,
-			);
-			name = RecipesTests;
-			productName = RecipesTests;
-			productReference = DA432BAF234225A5001038EC /* RecipesTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -169,10 +119,6 @@
 				TargetAttributes = {
 					DA432B98234225A4001038EC = {
 						CreatedOnToolsVersion = 11.0;
-					};
-					DA432BAE234225A5001038EC = {
-						CreatedOnToolsVersion = 11.0;
-						TestTargetID = DA432B98234225A4001038EC;
 					};
 				};
 			};
@@ -190,7 +136,6 @@
 			projectRoot = "";
 			targets = (
 				DA432B98234225A4001038EC /* Recipes */,
-				DA432BAE234225A5001038EC /* RecipesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -208,13 +153,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DA432BAD234225A5001038EC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -223,30 +161,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA432B9D234225A4001038EC /* Delegate.swift in Sources */,
-				DA210C2523423E5000B40699 /* Result.swift in Sources */,
+				DA210C2523423E5000B40699 /* Recipes.swift in Sources */,
 				DA210C232342357A00B40699 /* Config.swift in Sources */,
 				DA432B9F234225A4001038EC /* Scene.swift in Sources */,
 				DA432BA1234225A4001038EC /* Content.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DA432BAB234225A5001038EC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DA432BB4234225A5001038EC /* Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		DA432BB1234225A5001038EC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DA432B98234225A4001038EC /* Recipes */;
-			targetProxy = DA432BB0234225A5001038EC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DA432BA7234225A5001038EC /* LaunchScreen.storyboard */ = {
@@ -422,50 +344,6 @@
 			};
 			name = Release;
 		};
-		DA432BBC234225A5001038EC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7AMWG3RLHN;
-				INFOPLIST_FILE = RecipesTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = codechallenge.RecipesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Recipes.app/Recipes";
-			};
-			name = Debug;
-		};
-		DA432BBD234225A5001038EC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7AMWG3RLHN;
-				INFOPLIST_FILE = RecipesTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = codechallenge.RecipesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Recipes.app/Recipes";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -483,15 +361,6 @@
 			buildConfigurations = (
 				DA432BB9234225A5001038EC /* Debug */,
 				DA432BBA234225A5001038EC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DA432BBB234225A5001038EC /* Build configuration list for PBXNativeTarget "RecipesTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DA432BBC234225A5001038EC /* Debug */,
-				DA432BBD234225A5001038EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
