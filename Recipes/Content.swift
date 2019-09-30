@@ -9,24 +9,52 @@ private let dateFormatter: DateFormatter = {
 
 struct Content: View {
     @State private var dates = [Date]()
+    @State private var loading = false
 
     var body: some View {
-        NavigationView {
-            MasterView(dates: $dates)
-                .navigationBarTitle(Text(.init("List.title")))
-                .navigationBarItems(
-                    leading: EditButton(),
-                    trailing: Button(
-                        action: {
-                            withAnimation { self.dates.insert(Date(), at: 0) }
+        Loading(loading: $loading) {
+            NavigationView {
+                MasterView(dates: self.$dates)
+                    .navigationBarTitle(Text(.init("List.title")))
+                    .navigationBarItems(
+                        leading: EditButton(),
+                        trailing: Button(
+                            action: {
+                                withAnimation { self.loading = true }
+                            }
+                        ) {
+                            Image(systemName: "arrow.2.circlepath")
                         }
-                    ) {
-                        Image(systemName: "arrow.2.circlepath")
-                    }
-                )
-            DetailView()
-        }.navigationViewStyle(DoubleColumnNavigationViewStyle())
+                    )
+                DetailView()
+            }.navigationViewStyle(DoubleColumnNavigationViewStyle())
+        }
     }
+}
+
+private struct Loading<List>: View where List: View {
+    @Binding var loading: Bool
+    var list: () -> List
+    
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack(alignment: .center) {
+                self.list()
+                    .disabled(self.loading)
+                    .blur(radius: self.loading ? 3 : 0)
+                VStack {
+                    Text(.init("List.loading"))
+                    Image(systemName: "arrow.2.circlepath.circle")
+                }
+                .frame(width: geometry.size.width / 2, height: geometry.size.height / 5)
+                .background(Color.secondary.colorInvert())
+                .foregroundColor(Color.primary)
+                .cornerRadius(20)
+                .opacity(self.loading ? 1 : 0)
+            }
+        }
+    }
+
 }
 
 struct MasterView: View {
